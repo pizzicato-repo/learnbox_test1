@@ -1,0 +1,13 @@
+/rs.bat
+/db.sqlite3
+/learnbox_test0/__init__.py
+/learnbox_test0/local_settings.py
+
+
+### Django ###
+
+
+__pycache__/
+
+# Byte-compiled / optimized / DLL files
+*.py[cod]
