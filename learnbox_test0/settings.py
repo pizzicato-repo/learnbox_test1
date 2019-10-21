@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'la trés-chère était nue, elle connaissait mon coeur,'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['learnbox.alwaysdata.net'] #'learnbox.alwaysdata.net'
 
@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ['learnbox.alwaysdata.net'] #'learnbox.alwaysdata.net'
 # Application definition
 
 INSTALLED_APPS = [
+    'inscription_pedago.apps.InscriptionPedagoConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -74,22 +75,22 @@ WSGI_APPLICATION = 'learnbox_test0.wsgi.application'
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql', 
-        'NAME': 'learnbox_test',
-        'USER': 'learnbox_user',
-        'PASSWORD': 'a0b1c2d3e4',
-        'HOST': 'mysql-learnbox.alwaysdata.net',   #'mysql-learnbox.alwaysdata.net'
-        'PORT': '3306',
-    }
+     'default': {
+         'ENGINE': 'django.db.backends.mysql', 
+         'NAME': 'learnbox_test',
+         'USER': 'learnbox_user',
+         'PASSWORD': 'a0b1c2d3e4',
+         'HOST': 'mysql-learnbox.alwaysdata.net',   #'mysql-learnbox.alwaysdata.net'
+         'PORT': '3306',
+     }
 }
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.sqlite3',
+#        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#    }
+#}
 
 
 # Password validation
