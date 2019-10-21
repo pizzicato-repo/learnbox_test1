@@ -20,12 +20,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'q=!*014o^#5*p+-(c*j(82y2-gpo(1ax#%470b^+zt#c#r2)kl'
+SECRET_KEY = 'la trés-chère était nue, elle connaissait mon coeur,'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['*'] #'learnbox.alwaysdata.net'
+ALLOWED_HOSTS = ['learnbox.alwaysdata.net'] #'learnbox.alwaysdata.net'
 
 
 # Application definition
