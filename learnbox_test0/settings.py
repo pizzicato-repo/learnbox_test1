@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'q=!*014o^#5*p+-(c*j(82y2-gpo(1ax#%470b^+zt#c#r2)kl'
+SECRET_KEY = 'secret'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'inscription_pedago.apps.InscriptionPedagoConfig',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -73,23 +74,23 @@ WSGI_APPLICATION = 'learnbox_test0.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql', 
-        'NAME': 'learnbox_test',
-        'USER': 'learnbox_user',
-        'PASSWORD': 'a0b1c2d3e4',
-        'HOST': 'mysql-learnbox.alwaysdata.net',   #'mysql-learnbox.alwaysdata.net'
-        'PORT': '3306',
-    }
-}
-
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#         'ENGINE': 'django.db.backends.mysql', 
+#         'NAME': 'learnbox_test',
+#         'USER': 'learnbox_user',
+#         'PASSWORD': 'a0b1c2d3e4',
+#         'HOST': 'mysql-learnbox.alwaysdata.net',   #'mysql-learnbox.alwaysdata.net'
+#         'PORT': '3306',
 #     }
 # }
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
 
 
 # Password validation
