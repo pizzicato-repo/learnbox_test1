@@ -63,7 +63,7 @@ from django.views.generic import DetailView
 
 class StudentCreate(CreateView):
     model = Student
-    fields = ['student_name']
+    fields = ['name']
     template_name_suffix = '_edit'
     # success_url = "/campaigns/list" => get_absolute_url
     
