@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <link  rel="stylesheet" href="{% static 'css/lb.css' %}">
+</head>
+
+<body>
+	<nav>
+        <div id="logo">Your Logo here</div>
+
+        <label for="drop" class="toggle">Menu</label>
+        <input type="checkbox" id="drop" />
+            <ul class="menu">
+                <li><a href="#">Home</a></li>
+                <li>
+                    <!-- First Tier Drop Down -->
+                    <label for="drop-1" class="toggle">Instruments </label>
+                    <a href="#">Instruments</a>
+                    <input type="checkbox" id="drop-1"/>
+                    <ul>
+                        <li><a href="#">Flûte</a></li>
+                        <li><a href="#">Piano</a></li>
+                        <li><a href="#">Violon</a></li>
+                        <li><a href="#">Violoncelle</a></li>
+                    </ul> 
+
+                </li>
+
+                <li><a href="#">Inscription</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+        </nav>
+
+        <p> A simple dropdown navigation menu made with CSS Only. Dropdowns are marked with a plus sign ( + )</p>
+        <p> Resize the screen to see the look if the screen is smaller then 768px </p>
+
+</body>
+</html>

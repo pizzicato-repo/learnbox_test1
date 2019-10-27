@@ -4,9 +4,7 @@ from django.http import HttpResponse
 from inscription_pedago.models import Student, Teatcher
 from django.utils import timezone
 
-
-def index(request):
-    return HttpResponse("Hello, world : LearnBox initiative.")
+from django.shortcuts import render
 
 def create_student(request):
     s = Student( name="toto", inscription_date=timezone.now() )
@@ -16,5 +14,16 @@ def create_student(request):
     return HttpResponse( txt )
 
 def test(request):
-    return HttpResponse( "test" )
+    return render(request, 'inscriptions_pedago/base.html', {})
 
+def test_simple(request):
+    return render(request, 'inscriptions_pedago/simple.html', {})
+
+def menu1(request):
+    return render(request, 'inscriptions_pedago/menu1.html', {})
+
+def inscription(request):
+    return render(request, 'inscriptions_pedago/inscription.html', {})
+
+def b_all(request):
+    return render(request, 'inscriptions_pedago/b_all.html', {})
