@@ -12,7 +12,7 @@ urlpatterns = [
     
     path('inscription', test_views.inscription, name='inscription'),
 
-    # same job
+    # almost same job
     path('student/new/', test_views.student_new, name='student_new'),
     path('student/create/', test_views.StudentCreate.as_view(), name='student_create'),
     

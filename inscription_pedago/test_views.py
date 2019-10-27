@@ -61,9 +61,10 @@ def student_edit(request, pk):
 from django.views.generic.edit import CreateView
 from django.views.generic import DetailView
 
+# remarque : does not use the StudentForm
 class StudentCreate(CreateView):
     model = Student
-    fields = ['name']
+    fields = ['name', 'surname', 'email', 'date_of_birth']
     template_name_suffix = '_edit'
     # success_url = "/campaigns/list" => get_absolute_url
     

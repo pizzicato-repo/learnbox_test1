@@ -5,8 +5,11 @@
     <br> Informations de votre profil</p>
 <br>
 
-<span>nom : {{object.name}}</span>
-<br>
+<span>nom : {{object.name}}</span> <br>
+<span>prénom : {{object.surname}}</span> <br>
+<span>mail : {{object.email}}</span> <br>
+<span>date de naissance : {{object.date_of_birth|date}}</span> <br>
+
 <span>date inscription : {{object.inscription_date}}</span>
 
 {% endblock %}
