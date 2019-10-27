@@ -1,0 +1,12 @@
+{% extends 'inscription_pedago/base.html' %}
+{% block content %}
+
+<p>Votre inscription est validée.
+    <br> Informations de votre profil</p>
+<br>
+
+<span>nom : {{object.student_name}}</span>
+<br>
+<span>date inscription : {{object.inscription_date}}</span>
+
+{% endblock %}
