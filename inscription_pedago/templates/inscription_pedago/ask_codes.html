@@ -7,12 +7,13 @@
         <option value="{{ teatcher.id }}">{{ teatcher.full_name }}</option>
         {% endfor %}
     </select> -->
-
+</h2>
+    <ul>
     {% for teatcher in teatchers %}
     <li><a href="{% url 'validate_codes' teatcher.id %}">{{ teatcher.full_name }}</a></li>
     {% endfor %}
+    </ul>
 
-</h2>
 <br>
 
 {% endblock %}
