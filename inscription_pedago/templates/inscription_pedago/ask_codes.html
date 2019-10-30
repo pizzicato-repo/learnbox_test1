@@ -1,0 +1,18 @@
+{% extends 'inscription_pedago/base.html' %}
+{% block content %}
+
+<h2>Création de codes pour l'enseignant : 
+    <!-- <select>
+        {% for teatcher in teatchers %}
+        <option value="{{ teatcher.id }}">{{ teatcher.full_name }}</option>
+        {% endfor %}
+    </select> -->
+
+    {% for teatcher in teatchers %}
+    <li><a href="{% url 'validate_codes' teatcher.id %}">{{ teatcher.full_name }}</a></li>
+    {% endfor %}
+
+</h2>
+<br>
+
+{% endblock %}

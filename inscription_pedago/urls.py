@@ -18,5 +18,8 @@ urlpatterns = [
     
     path('student/<int:pk>/detail/', test_views.StudentDetail.as_view(), name='student-detail'),
     path('student/<int:pk>/edit/', test_views.student_edit, name='student_edit'),
+    
+    path('ask_codes/', test_views.ask_codes, name='ask_codes'),
+    path('validate_codes/<int:pk>/', test_views.validate_codes, name='validate_codes'),
 
 ]

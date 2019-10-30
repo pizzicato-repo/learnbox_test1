@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
-from inscription_pedago.models import Student, Teatcher
+from inscription_pedago.models import Student, Teatcher, Validation_code
 from django.utils import timezone
 
 from django.shortcuts import render, get_object_or_404
@@ -75,3 +75,37 @@ class StudentCreate(CreateView):
 class StudentDetail(DetailView):
     model = Student
     template_name = 'inscription_pedago/student-detail.html'
+
+import random
+
+def get_code():
+    ch = ''
+    for i in range(12) :
+        k = random.randrange(1, 35)
+        if k<10 :
+            ch += str(k)
+        else:
+            ch += chr( 65 + k - 10 )
+        ch += ' '
+    return ch   
+
+def ask_codes(request):
+    dico = {'teatchers' : Teatcher.objects.all() }
+    return render(request, 'inscription_pedago/ask_codes.html', dico)
+
+def validate_codes(request, pk):
+    teatcher = Teatcher.objects.get(pk=pk)
+
+    codes = [  ]
+    for i in range(4):
+        str_code = get_code()
+        is_already = Validation_code.objects.filter(code=str_code).count() != 0
+        if not is_already :
+            code = Validation_code(code=str_code, teatcher=teatcher)
+            code.save()
+            codes.append( str_code )
+
+    #names_teatchers = [ str(teatcher) for teatcher in Teatcher.objects.all() ]
+    # print( 'names_teatchers', names_teatchers )
+    dico = {'codes' : codes, 'teatcher' : teatcher }
+    return render(request, 'inscription_pedago/validate_codes.html', dico)

@@ -13,6 +13,9 @@ class Student(models.Model):
 
     def __str__(self):
         return self.surname +' '+ self.name +' ('+ self.email +')'
+    
+    def full_name(self):
+        return self.surname +' '+ self.name
 
 class Discipline(models.Model):
     name = models.CharField(max_length=100)
@@ -23,9 +26,21 @@ class Discipline(models.Model):
 class Teatcher(models.Model):
     name = models.CharField(max_length=200)
     surname = models.CharField(max_length=200)
-    url_site = models.CharField(max_length=200, default='url_vide')
+    url_site = models.URLField(max_length=200, default='url_vide')
 
     disciplines = models.ManyToManyField(Discipline)
 
     def __str__(self):
         return self.surname +' '+ self.name
+
+    def full_name(self):
+        return self.surname +' '+ self.name
+
+class Validation_code(models.Model):
+    code = models.CharField(max_length=12)
+    teatcher = models.ForeignKey(Teatcher, on_delete=models.CASCADE)
+    student = models.ForeignKey(Student, null=True, on_delete=models.CASCADE)
+
+    def __str__(self):
+        str_student = '' if self.student is None else '-> '+ self.student.full_name()
+        return self.code +' ('+ str(self.teatcher) +')'+ str_student
