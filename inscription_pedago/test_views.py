@@ -86,7 +86,6 @@ def get_code():
             ch += str(k)
         else:
             ch += chr( 65 + k - 10 )
-        ch += ' '
     return ch   
 
 def ask_codes(request):
