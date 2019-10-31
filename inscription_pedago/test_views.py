@@ -42,7 +42,9 @@ def student_new(request):
             print("form not valide")
     else:
         form = StudentForm()
-        return render(request, 'inscription_pedago/student_edit.html', {'form': form})
+
+        temp = request.META.get('HTTP_REFERER', None)
+        return render(request, 'inscription_pedago/student_edit.html', {'form': form, 'temp':temp})
 
 
 def student_edit(request, pk):
