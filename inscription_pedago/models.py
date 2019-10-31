@@ -26,7 +26,7 @@ class Discipline(models.Model):
 class Teatcher(models.Model):
     name = models.CharField(max_length=200)
     surname = models.CharField(max_length=200, default='default_surname')
-    url_site = models.URLField(max_length=200, default='url_vide.fr')
+    url_site = models.URLField(max_length=200, default='urlvide.fr')
 
     disciplines = models.ManyToManyField(Discipline)
 
