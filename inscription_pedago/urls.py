@@ -7,9 +7,8 @@ urlpatterns = [
     #test redirections
     path('menu1', test_views.menu1, name='menu1'),
         
-    # almost same job
     path('student/new/', test_views.student_new, name='student_new'),
-    path('student/create/', test_views.StudentCreate.as_view(), name='student_create'),
+    #path('student/create/', test_views.StudentCreate.as_view(), name='student_create'),
     
     path('student/<int:pk>/detail/', test_views.StudentDetail.as_view(), name='student-detail'),
     path('student/<int:pk>/edit/', test_views.student_edit, name='student_edit'),

@@ -6,12 +6,12 @@ from django.utils import timezone
 
 from django.shortcuts import render, get_object_or_404
 
-def create_student(request):
-    s = Student( name="toto", inscription_date=timezone.now() )
-    s.save()
-    all_students = Student.objects.all()
-    txt = "il y a "+ str( len(all_students)) + " students dans la base actuellement."
-    return HttpResponse( txt )
+# def create_student(request):
+#     s = Student( name="toto", inscription_date=timezone.now() )
+#     s.save()
+#     all_students = Student.objects.all()
+#     txt = "il y a "+ str( len(all_students)) + " students dans la base actuellement."
+#     return HttpResponse( txt )
 
 def base(request):
     return render(request, 'inscription_pedago/base.html', {})
@@ -56,16 +56,16 @@ def student_edit(request, pk):
 from django.views.generic.edit import CreateView
 from django.views.generic import DetailView
 
-# remarque : does not use the StudentForm
-class StudentCreate(CreateView):
-    model = Student
-    fields = ['name', 'surname', 'email', 'date_of_birth']
-    template_name_suffix = '_edit'
-    # success_url = "/campaigns/list" => get_absolute_url
+# TODO : get_context_data
+# class StudentCreate(CreateView):
+#     model = Student
+#     fields = ['name', 'surname', 'email', 'date_of_birth']
+#     template_name_suffix = '_edit'
+#     # success_url = "/campaigns/list" => get_absolute_url
     
-    def form_valid(self, form):
-        form.instance.inscription_date = timezone.now()
-        return super().form_valid(form)
+#     def form_valid(self, form):
+#         form.instance.inscription_date = timezone.now()
+#         return super().form_valid(form)
 
 class StudentDetail(DetailView):
     model = Student
