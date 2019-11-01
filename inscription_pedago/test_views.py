@@ -13,17 +13,11 @@ def create_student(request):
     txt = "il y a "+ str( len(all_students)) + " students dans la base actuellement."
     return HttpResponse( txt )
 
-def test(request):
+def base(request):
     return render(request, 'inscription_pedago/base.html', {})
-
-def test_simple(request):
-    return render(request, 'inscription_pedago/simple.html', {})
 
 def menu1(request):
     return render(request, 'inscription_pedago/menu1.html', {})
-
-def inscription(request):
-    return render(request, 'inscription_pedago/b_inscription.html', {})
 
 from .forms import StudentForm
 from django.shortcuts import redirect
@@ -45,7 +39,6 @@ def student_new(request):
 
         temp = request.META.get('HTTP_REFERER', None)
         return render(request, 'inscription_pedago/student_edit.html', {'form': form, 'temp':temp})
-
 
 def student_edit(request, pk):
     student = get_object_or_404(Student, pk=pk)
