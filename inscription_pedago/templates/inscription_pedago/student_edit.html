@@ -1,10 +1,10 @@
 {% extends 'inscription_pedago/base.html' %}
 {% block content %}
 provenance : {{temp}}
-<h2>Veuillez finaliser votre inscription</h2>
+<h2>Bonjour, veuillez finaliser votre inscription</h2>
 <form method="POST" class="student-form">
     {% csrf_token %}
-    {{ form.as_p }}
+    {{ form.as_table }}
     <button type="submit" class="save btn btn-default">Save</button>
 </form>
 
