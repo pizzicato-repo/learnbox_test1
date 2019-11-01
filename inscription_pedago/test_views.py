@@ -17,7 +17,8 @@ def base(request):
     return render(request, 'inscription_pedago/base.html', {})
 
 def menu1(request):
-    return render(request, 'inscription_pedago/menu1.html', {})
+    temp = request.META.get('HTTP_REFERER', None)
+    return render(request, 'inscription_pedago/menu1.html', {'temp' : temp})
 
 from .forms import StudentForm
 from django.shortcuts import redirect
