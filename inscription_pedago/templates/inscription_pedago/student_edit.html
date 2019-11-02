@@ -1,6 +1,6 @@
 {% extends 'inscription_pedago/base.html' %}
 {% block content %}
-provenance : {{temp}}
+provenance : {{url_sender}}
 <h2>Bonjour, veuillez finaliser votre inscription</h2>
 <form method="POST" class="student-form">
     {% csrf_token %}
