@@ -24,7 +24,6 @@ from .forms import StudentForm
 from django.shortcuts import redirect
 
 def student_new(request): 
-    print("####", request.HttpRequest.META)       
     if request.method == "POST":
         form = StudentForm(request.POST)
         if form.is_valid():
