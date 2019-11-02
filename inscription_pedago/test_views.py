@@ -36,11 +36,11 @@ def student_new(request):
         else:
             print("form not valide")
     else:
-        sent_code = request.GET['lb_code']
+        sent_code = request.GET['lb-code']
         url_sender = request.META.get('HTTP_REFERER', None)
 
         form = StudentForm()
-        datas = {'sent_code' : sent_code, 'url_sender' : url_sender}
+        datas = {'sent_code' : sent_code, 'url_sender' : url_sender, 'form': form}
         return render(request, 'inscription_pedago/student_edit.html', datas)
 
 def student_edit(request, pk):
