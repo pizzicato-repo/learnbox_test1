@@ -32,14 +32,16 @@ def student_new(request):
             student.inscription_date = timezone.now()
     
             student.save()
-            return redirect('student-detail', pk=student.pk)
+            return redirect(' student-detail', pk=student.pk)
         else:
             print("form not valide")
     else:
-        form = StudentForm()
+        sent_code = request['lb_code']
+        url_sender = request.META.get('HTTP_REFERER', None)
 
-        temp = request.META.get('HTTP_REFERER', None)
-        return render(request, 'inscription_pedago/student_edit.html', {'form': form, 'temp':temp})
+        form = StudentForm()
+        datas = {'sent_code' : sent_code, 'url_sender' : url_sender}
+        return render(request, 'inscription_pedago/student_edit.html', datas)
 
 def student_edit(request, pk):
     student = get_object_or_404(Student, pk=pk)
