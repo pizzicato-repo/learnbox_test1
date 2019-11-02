@@ -37,7 +37,7 @@ def student_new(request):
             print("form not valide")
     else:
         sent_code = request.GET['lb-code']
-        url_sender = request.META.get('HTTP_REFERER', None)
+        url_sender = request.META.get('HTTP_REFERER', 'None')
 
         form = StudentForm()
         datas = {'sent_code' : sent_code, 'url_sender' : url_sender, 'form': form}
