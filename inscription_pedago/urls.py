@@ -5,7 +5,7 @@ from . import test_views
 urlpatterns = [
     path('base', test_views.base, name='base'),
     #test redirections
-    path('menu1', test_views.menu1, name='menu1'),
+    path('', test_views.menu1, name='menu1'),
         
     path('student/new/', test_views.student_new, name='student_new'),
     #path('student/create/', test_views.StudentCreate.as_view(), name='student_create'),

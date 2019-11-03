@@ -25,6 +25,9 @@ from django.shortcuts import redirect
 
 def student_new(request): 
     if request.method == "POST":
+
+        #url_sender = request.META.get('HTTP_REFERER', 'None')
+
         form = StudentForm(request.POST)
         if form.is_valid():
             student = form.save(commit=False)
@@ -36,11 +39,13 @@ def student_new(request):
         else:
             print("form not valide")
     else:
-        sent_code = request.GET['lb-code']
-        url_sender = request.META.get('HTTP_REFERER', 'None')
+        sent_code = request.GET.get('lb-code', None)
+        lb_teatcher = request.GET.get('lb-teatcher', None)
+        
+        teatcher = Teatcher.objects.get(pk=int(lb_teatcher))
 
         form = StudentForm()
-        datas = {'sent_code' : sent_code, 'url_sender' : url_sender, 'form': form}
+        datas = {'sent_code' : sent_code, 'teatcher' : teatcher, 'form': form}
         return render(request, 'inscription_pedago/student_edit.html', datas)
 
 def student_edit(request, pk):
