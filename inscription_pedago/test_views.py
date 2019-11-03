@@ -42,7 +42,7 @@ def student_new(request):
         sent_code = request.GET.get('lb-code', None)
         lb_teatcher = request.GET.get('lb-teatcher', None)
         
-        teatcher = Teatcher.objects.get(pk=int(lb_teatcher))
+        teatcher = Teatcher.objects.get(pk=int(lb_teatcher)) if lb_teatcher is not None else None
 
         form = StudentForm()
         datas = {'sent_code' : sent_code, 'teatcher' : teatcher, 'form': form}
