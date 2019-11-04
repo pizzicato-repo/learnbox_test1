@@ -13,6 +13,9 @@ from django.shortcuts import render, get_object_or_404
 #     txt = "il y a "+ str( len(all_students)) + " students dans la base actuellement."
 #     return HttpResponse( txt )
 
+def display_message(request, message):    
+    return render(request, 'inscription_pedago/message.html', {'message': message})
+
 def base(request):
     return render(request, 'inscription_pedago/base.html', {})
 
@@ -23,30 +26,75 @@ def menu1(request):
 from .forms import StudentForm
 from django.shortcuts import redirect
 
+
 def student_new(request): 
     if request.method == "POST":
+        sent_code = request.session['sent_code']
 
         #url_sender = request.META.get('HTTP_REFERER', 'None')
-
         form = StudentForm(request.POST)
         if form.is_valid():
-            student = form.save(commit=False)
+            if sent_code is None : 
+                return display_message(request, "Votre code d'inscription n'a pas été envoyé par le site du prof, veuillez nous contacter.")
+            else :
+                current_code = Validation_code.objects.get(code=sent_code)
+                if current_code is None : 
+                    return display_message(request, "Votre code d'inscription n'existe pas. [POST 2 ]")
+                else :                    
+                    if current_code.student is None :
+                        student = form.save(commit=False)
+                        student.inscription_date = timezone.now()
+                        student.save()
+                        
+                        current_code.student = student
+                        current_code.save()
+                        
+                        return redirect('student-detail', pk=student.pk)
+                    else : 
+                        return display_message(request, "Ce code d'inscription n'existe pas. (-> a déjà été utilisé). [POST 1]")
+        else : # formulaire incorrect
+            print (form.errors )
+            return send_form_for_inscription(request, sent_code, "", form)
 
-            student.inscription_date = timezone.now()
-    
-            student.save()
-            return redirect(' student-detail', pk=student.pk)
-        else:
-            print("form not valide")
-    else:
+    elif request.method == "GET":
         sent_code = request.GET.get('lb-code', None)
-        lb_teatcher = request.GET.get('lb-teatcher', None)
-        
-        teatcher = Teatcher.objects.get(pk=int(lb_teatcher)) if lb_teatcher is not None else None
+        if sent_code is not None : 
+            request.session['sent_code'] = sent_code
+        message = "Bonjour, veuillez finaliser votre inscription avec le professeur"
+        return send_form_for_inscription(request, request.session['sent_code'], message)
 
-        form = StudentForm()
-        datas = {'sent_code' : sent_code, 'teatcher' : teatcher, 'form': form}
-        return render(request, 'inscription_pedago/student_edit.html', datas)
+def send_form_for_inscription(request, sent_code, message="", form = StudentForm() ):
+    if sent_code is None or sent_code=="": 
+        return display_message(request,  "Le code d'inscription n'a pas été récupéré [B].")
+    else :
+        current_teatcher, current_student = get_teatcher_and_student_from_code( sent_code )
+        if current_teatcher is None : 
+            return display_message(request,  "Ce code d'inscription n'existe pas. [RESEND FORM]")
+        else:
+            if current_student is not None :    
+                return display_message(request,  "Ce code d'inscription n'existe pas. (-> a déjà été utilisé) [1].")
+            else :
+                if message=="Bonjour, veuillez finaliser votre inscription avec le professeur" :
+                        
+                    message += f" {str(current_teatcher)}" 
+                datas = {'sent_code' : sent_code, 'teatcher' : current_teatcher, 'form': form, 'message': message}
+                return render(request, 'inscription_pedago/student_edit.html', datas)
+        
+def get_teatcher_and_student_from_code( str_code ) :
+    current_code_s = Validation_code.objects.filter(code=str(str_code))
+    if len( current_code_s )!= 1 :
+        return None, None
+    else:
+        current_code = current_code_s[0]
+        return current_code.teatcher, current_code.student
+        
+
+def get_teatcher_from_id_or_none( id_teatcher ):
+    teatchers = Teatcher.objects.filter(pk=int(id_teatcher))
+    if len(teatchers) !=1 : 
+        return None
+    else :                  
+        return teatchers[0]  
 
 def student_edit(request, pk):
     student = get_object_or_404(Student, pk=pk)
@@ -78,6 +126,14 @@ from django.views.generic import DetailView
 class StudentDetail(DetailView):
     model = Student
     template_name = 'inscription_pedago/student-detail.html'
+
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        if self.request.session['sent_code'] :
+            url_prof = Validation_code.objects.filter(code=self.request.session['sent_code'])[0].teatcher.url_site
+
+            context['url_prof'] = url_prof
+        return context
 
 import random
 

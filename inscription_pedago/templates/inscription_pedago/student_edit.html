@@ -1,8 +1,7 @@
 {% extends 'inscription_pedago/base.html' %}
 {% block content %}
-code : {{sent_code}}
-provenance : {{url_sender}}
-<h2>Bonjour, veuillez finaliser votre inscription</h2>
+
+{{ message }}
 <form method="POST" class="student-form">
     {% csrf_token %}
     {{ form.as_table }}
