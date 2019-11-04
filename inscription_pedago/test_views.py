@@ -35,11 +35,11 @@ def student_new(request):
         form = StudentForm(request.POST)
         if form.is_valid():
             if sent_code is None : 
-                return display_message(request, "Votre code d'inscription n'a pas été envoyé par le site du prof, veuillez nous contacter.")
+                return display_message(request, "Votre code d'inscription n'a pas été récupéré à partir du site du prof, veuillez nous contacter.")
             else :
                 current_code = Validation_code.objects.get(code=sent_code)
                 if current_code is None : 
-                    return display_message(request, "Votre code d'inscription n'existe pas. [POST 2 ]")
+                    return display_message(request, "Votre code d'inscription n'existe pas.")
                 else :                    
                     if current_code.student is None :
                         student = form.save(commit=False)
@@ -51,7 +51,7 @@ def student_new(request):
                         
                         return redirect('student-detail', pk=student.pk)
                     else : 
-                        return display_message(request, "Ce code d'inscription n'existe pas. (-> a déjà été utilisé). [POST 1]")
+                        return display_message(request, "Ce code d'inscription n'existe pas. (-> a déjà été utilisé ). ")
         else : # formulaire incorrect
             print (form.errors )
             return send_form_for_inscription(request, sent_code, "", form)
@@ -65,14 +65,14 @@ def student_new(request):
 
 def send_form_for_inscription(request, sent_code, message="", form = StudentForm() ):
     if sent_code is None or sent_code=="": 
-        return display_message(request,  "Le code d'inscription n'a pas été récupéré [B].")
+        return display_message(request,  "Le code d'inscription n'a pas été récupéré.")
     else :
         current_teatcher, current_student = get_teatcher_and_student_from_code( sent_code )
         if current_teatcher is None : 
-            return display_message(request,  "Ce code d'inscription n'existe pas. [RESEND FORM]")
+            return display_message(request,  "Ce code d'inscription n'existe pas.")
         else:
             if current_student is not None :    
-                return display_message(request,  "Ce code d'inscription n'existe pas. (-> a déjà été utilisé) [1].")
+                return display_message(request,  "Ce code d'inscription n'existe pas. (-> a déjà été utilisé)")
             else :
                 if message=="Bonjour, veuillez finaliser votre inscription avec le professeur" :
                         
