@@ -29,6 +29,7 @@ class Teatcher(models.Model):
     url_site = models.URLField(max_length=200, default='www.urlvide.fr')
 
     disciplines = models.ManyToManyField(Discipline)
+    
 
     def __str__(self):
         return self.surname +' '+ self.name

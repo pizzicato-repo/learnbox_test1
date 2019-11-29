@@ -167,3 +167,19 @@ def validate_codes(request, pk):
     # print( 'names_teatchers', names_teatchers )
     dico = {'codes' : codes, 'teatcher' : teatcher }
     return render(request, 'inscription_pedago/validate_codes.html', dico)
+
+    #.......... reprise du code avec les teatchers
+
+class TeatcherDetail(DetailView):
+    model = Teatcher
+
+    # def get_queryset(self):
+    #     return object.discipline_set.all()
+
+    # def get_context_data(self, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+
+    #     context['disciplines'] = Discipline.objects.filter(developer = self.object)
+
+         
+    #     return context

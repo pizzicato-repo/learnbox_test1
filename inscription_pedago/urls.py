@@ -15,4 +15,6 @@ urlpatterns = [
     
     path('ask_codes/', test_views.ask_codes, name='ask_codes'),
     path('validate_codes/<int:pk>/', test_views.validate_codes, name='validate_codes'),
+
+    path('teatcher/<int:pk>/', test_views.TeatcherDetail.as_view(), name='teatcher_detail'),
 ]
