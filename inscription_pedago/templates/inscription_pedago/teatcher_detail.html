@@ -1,0 +1,21 @@
+{% extends 'inscription_pedago/base.html' %}
+{% block content %}
+
+<br> Informations de votre profil professeur : </p>
+
+<span>nom : {{object.name}}</span> <br>
+<span>prénom : {{object.surname}}</span> <br>
+<!-- <span>mail : {{object.email}}</span> <br> -->
+
+
+
+<hr>
+<!-- {% for d in disciplines %} -->
+{% for d in object.disciplines %}
+
+{{ d.name }}
+
+{% endfor %}
+
+<a href="{{url_prof}}"> Aller en cours !</a>
+{% endblock %}
