@@ -3,6 +3,8 @@ from django.urls import path
 from . import test_views
 
 urlpatterns = [
+    path('base_v2', test_views.base_v2, name='base_v2'),
+
     path('base', test_views.base, name='base'),
     #test redirections
     path('', test_views.menu1, name='menu1'),

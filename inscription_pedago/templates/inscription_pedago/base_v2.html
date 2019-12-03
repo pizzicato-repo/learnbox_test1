@@ -1,0 +1,92 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="{% static 'bootstrap/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/lb-2.css' %}">
+  </head>
+  <body>
+    <header class="container-fluid" id="lb-header">
+        <div class="row">
+            <div class="col d-none d-lg-block">
+            Learnbox Music
+            </div>
+            <div class="col d-none d-lg-block">
+                Coffrets cadeaux
+            </div>
+            <div class="col d-none d-md-block d-lg-none">
+            Entete tablette
+            </div>
+            <div class="col d-none d-sm-block d-md-none">
+            Entete smartphone paysage
+            </div>
+            <div class="col d-sm-none">
+                    Learnbox Music
+            </div>
+            <div class="col d-sm-none">
+                    Coffrets cadeaux
+            </div>
+        </div>
+    </header>
+
+<div class="container">
+        <div class="row">
+            <div class="col" >
+                <img src="{% static 'img/lb-big.jpg' %}">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-5 mx-auto" id="lb-contentleft">
+                <button type="button" class="btn btn-secondary">Learnbox Music</button>
+                
+                <br><br><p>
+                Retrouvez toutes les fonctionnalités
+                dont vous pourriez avoir besoin pour
+                apprendre la musique.<br><br>
+                
+                Partitions, vidéo, annonces de concerts,
+                instruments d’occasion etc…
+            </p>
+            </div>  
+            <div class="col-5 mx-auto" id="lb-contentright">
+                <button type="button" class="btn btn-primary">Coffrets Cadeaux</button>
+                <br><br>
+                <p>Échangez votre code Learnbox
+                contre la formation de votre choix.<br><br>
+                
+                Musique, développement web,
+                montage vidéo, travaux manuel, etc…<br><br>
+                
+                Tout ce que vous voulez apprendre <br>
+                à portée de clic !
+                </p>
+            </div>                              
+        </div>
+        <div class="row-spacer" id="spacer2"></div>
+        <div class="row-spacer d-none d-lg-block" id="spacer2"></div>
+        <div class="row-spacer d-none d-lg-block" id="spacer2"></div>
+        <div class="row-spacer d-none d-lg-block" id="spacer2"></div>
+        <div class="row-spacer d-none d-lg-block" id="spacer2"></div>
+        <div class="row-spacer d-none d-lg-block" id="spacer2"></div>
+
+        <footer class="row" id="lb-footer">          
+            <div class="col-md-4">                 
+                <a>Mentions légales </a> <br>
+                <a>Conditions générales de vente</a><br>
+                <a>Droits de rétractation</a><br>
+                      
+            </div>
+            <div class="col-md-4">
+                <a>Contactez-nous</a><br>
+                <a>Qui sommes nous ?</a><br>       
+            </div>            
+            <div class="col-md-4">
+                <a>Devenir partenaire</a><br>
+            </div>            
+        </footer>
+      </div>
+  </body>
+</html>

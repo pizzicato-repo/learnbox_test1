@@ -19,6 +19,11 @@ def display_message(request, message):
 def base(request):
     return render(request, 'inscription_pedago/base.html', {})
 
+
+def base_v2(request):
+    return render(request, 'inscription_pedago/base_v2.html', {})
+
+
 def menu1(request):
     temp = request.META.get('HTTP_REFERER', None)
     return render(request, 'inscription_pedago/menu1.html', {'temp' : temp})
