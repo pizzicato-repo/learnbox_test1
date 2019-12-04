@@ -1,0 +1,74 @@
+@media screen and (max-width: 640px) {
+    body {
+        font-size:100%;  
+        word-wrap:break-word !important;
+      }
+  }
+
+
+body {
+    /* padding-top: 10px; */
+    word-wrap:break-word !important;
+    /* background-color : rgb(246,221,201); */
+    color : #C9744F
+    /* color : rgb(166,57,80); */
+}     
+[class*="col"], footer, aside {
+    /* background-color: lightblue;
+    border: 1px solid blue; */
+    border-radius: 4px;
+    line-height: 40px;
+    text-align: left;
+}
+
+.tata{
+    font-size:120%;  
+}
+
+#instrument-header{
+    background-color: black;
+    text-align: center;
+    padding-top : 10px;
+    padding-bottom : 0px;
+}
+#img-top{
+    display: block;
+    /* margin: 0 auto; */
+    height: 100%;
+    width: 100%;
+}
+
+.lead{
+    color:rgb(136,0,21);
+    font-size: 1.6em;
+}
+.h4{
+    color:rgb(136,0,21);
+    font-family: 'Monospace', sans-serif !important;
+      /* background-color: lightblue;
+    border: 1px solid blue; */
+}
+.toto{
+    /* background-color: lightblue;
+    border: 1px solid blue;  */
+    line-height: 1.5;   
+    color : black;
+}
+.row-spacer{
+    height : 20px;
+}
+#instrument-exemple{
+    padding-top : 10px;
+    /* background-color:rgb(236,191,174); */
+    background-color:rgb(136,0,21,.1);; 
+    border: 1px solid rgb(136,0,21,.2); 
+    border-radius: 4px;
+    color : black;
+}
+
+#points-forts{
+    background-color: rgb(235, 240, 244);
+    border: 1px solid #dddddd;
+    color : rgb(0,0,77);
+    font-size:140%;
+}

@@ -184,7 +184,24 @@ class TeatcherDetail(DetailView):
     # def get_context_data(self, **kwargs):
     #     context = super().get_context_data(**kwargs)
 
-    #     context['disciplines'] = Discipline.objects.filter(developer = self.object)
-
-         
+    #     context['disciplines'] = Discipline.objects.filter(developer = self.object)         
     #     return context
+
+
+def instrument(request):
+    return render(request, 'inscription_pedago/instrument.html', {} )
+
+
+
+from django.core.mail import send_mail
+
+def test_mail(request):
+    print( 'test_mail->')
+    send_mail(
+        'Subject here',
+        'Here is the message.',
+        'softs.musics@gmail.com',
+        ['to@example.com'],
+        fail_silently=False,
+    )
+    return HttpResponse( 'test mail done.' )

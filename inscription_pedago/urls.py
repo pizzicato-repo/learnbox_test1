@@ -19,4 +19,7 @@ urlpatterns = [
     path('validate_codes/<int:pk>/', test_views.validate_codes, name='validate_codes'),
 
     path('teatcher/<int:pk>/', test_views.TeatcherDetail.as_view(), name='teatcher_detail'),
+    
+    path('test_mail', test_views.test_mail, name='test_mail'),
+    path('instrument', test_views.instrument, name='instrument'),
 ]
