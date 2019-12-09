@@ -49,4 +49,4 @@ class Validation_code(models.Model):
 class ContactModel(models.Model):
     name = models.CharField(max_length=12)
     phone_number    = models.CharField(max_length=20)
-    demandes_particulieres = models.CharField(max_length=2000, default='')
+    demandes_particulieres = models.CharField(max_length=2000, default='', null=True, blank=True)

@@ -72,3 +72,13 @@ body {
     color : rgb(0,0,77);
     font-size:140%;
 }
+#ligne1{
+    width : 200px;
+}
+#ligne2{
+    width : 200px;
+}
+
+.verti_align{
+    width : 190px;
+}

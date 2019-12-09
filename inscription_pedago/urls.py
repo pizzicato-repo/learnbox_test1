@@ -23,8 +23,8 @@ urlpatterns = [
     path('test_mail', test_views.test_mail, name='test_mail'),
     path('instrument', test_views.instrument, name='instrument'),
 
-    # path('contact', test_views.contact, name='contact'), #OK
-    path('contact', test_views.ContactCreate.as_view(), name='contact'), #OK
+    # path('contact-us', test_views.contact, name='contact'), #OK
+    path('contact-us', test_views.ContactCreate.as_view(), name='contact'), #OK
 
     path('will_contact', test_views.will_contact, name='will_contact'),
 ]
