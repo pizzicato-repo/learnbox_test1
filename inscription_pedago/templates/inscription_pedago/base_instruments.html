@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="{% static 'bootstrap/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/instruments.css' %}">
+    {% block specific_css %}
+    {% endblock %}
+  </head>
+  <body>
+        <header class="container-fluid" id="instrument-header">
+            <div class="row">
+                <div class="col">
+                    <p class="text-center tata">MUSIQUE INVESTISSEMENT    </p>                    
+                </div>
+            </div>
+        </header>
+        <img src="{% static 'img/instrument-top.jpg' %}" id="img-top">
+    
+        <header class="container-fluid" id="instrument-header">
+        <div class="row">
+            <div class="col d-none d-lg-block">
+                <p class="text-center tata">Devenez une entreprise mécène grâce au prêt d’instrument et bénéficiez de dispositions fiscales avantageuses </p>
+            </div>
+
+            <div class="col d-none d-md-block d-lg-none">
+                <p class="text-center">
+                    Devenez une entreprise mécène grâce au prêt d’instrument <br> 
+                    Bénéficiez de dispositions fiscales avantageuses 
+                </p>
+            </div>
+
+            <div class="col d-none d-sm-block d-md-none">
+                <p class="text-center">
+                    Devenez une entreprise mécène<br>grâce au prêt d’instrument 
+                </p>
+            </div>
+
+            <div class="col d-sm-none">
+                <p class="text-center">
+                    Devenez une entreprise mécène
+                </p>
+            </div>
+        </div>
+    </header>
+
+    <div class="container-fluid">
+        {% block content %}
+        {% endblock %}
+    </div>
+    </body>
+  </html>

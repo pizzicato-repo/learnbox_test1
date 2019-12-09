@@ -189,7 +189,7 @@ class TeatcherDetail(DetailView):
 
 
 def instrument(request):
-    return render(request, 'inscription_pedago/instrument.html', {} )
+    return render(request, 'inscription_pedago/instruments.html', {} )
 
 from .forms import ContactForm, ContactForm2
 def contact(request):

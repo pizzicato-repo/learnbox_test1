@@ -2,6 +2,7 @@ from django.urls import path
 
 from . import test_views
 
+app_name = 'test_learnbox'
 urlpatterns = [
     path('base_v2', test_views.base_v2, name='base_v2'),
 
@@ -21,10 +22,10 @@ urlpatterns = [
     path('teatcher/<int:pk>/', test_views.TeatcherDetail.as_view(), name='teatcher_detail'),
     
     path('test_mail', test_views.test_mail, name='test_mail'),
-    path('instrument', test_views.instrument, name='instrument'),
+    path('instruments', test_views.instrument, name='instruments'),
 
     # path('contact-us', test_views.contact, name='contact'), #OK
-    path('contact-us', test_views.ContactCreate.as_view(), name='contact'), #OK
+    path('contact-us', test_views.ContactCreate.as_view(), name='contact-us'), #OK
 
     path('will_contact', test_views.will_contact, name='will_contact'),
 ]

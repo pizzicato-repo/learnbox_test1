@@ -29,7 +29,7 @@ class ContactForm2(forms.ModelForm):
         labels = {
             'name': "Nom de la société",
             'phone_number': "Numéro de téléphone",
-            'demandes_particulieres': "Demandes particulieres",
+            'demandes_particulieres': "Demandes particulières",
             }
     phone_number = forms.RegexField(regex=r'^[0+][\d]+$', label="Numéro de Téléphone",
                                     min_length=10, max_length=13, 
