@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="{% static 'bootstrap/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/instrument.css' %}">
+    
+  </head>
+  <body>
+  
+    <div class="container">
+    <div class="row">
+
+            <div class="col-md-3 mt-4"></div>
+    
+            <div id="from_signup" class="col-md-9">
+                <form method='POST'> {% csrf_token %}
+    
+                    <div class="input-group mb-3 mt-3">
+                        <div class="input-group-prepend">
+                            <div id="" class="input-group-text">{{ form.name.label }}</div>
+                        </div>
+                        {{ form.name }}
+                        <div class='col-md-4'></div>
+                    </div>
+                    <div class="input-group mb-3 mt-3">
+                            <div class="input-group-prepend">
+                                <div id="header_input_signup" class="input-group-text">{{ form.phone_number.label }}</div>
+                            </div>
+                            {{ form.phone_number }}
+                            <div class='col-md-4 password_error'>
+                                {% for error in form.phone_number.errors %} {{ error }} {% endfor %}
+                            </div>
+                        </div>
+    
+                    <div class="input-group mb-3 mt-3">
+                        <div class="input-group-prepend">
+                            <div id="header_input_signup" class="input-group-text">{{ form.demandes_particulieres.label }}</div>
+                        </div>
+                        {{ form.demandes_particulieres }}
+                        <div class='col-md-4'></div>
+                    </div>
+
+                    <div class='row'>
+                            <div class='col-md-4'></div>
+        
+                            <div id="submit_profil1">
+                                <button type="submit" class="btn btn-success mb-3">Envoyer</button>
+                            </div>
+        
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    
+
+    
+
+
+</body>
+</html>

@@ -18,7 +18,7 @@ from django.urls import include, path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('inscription_pedago/', include('inscription_pedago.urls')),
+    path('', include('inscription_pedago.urls')),
 ]
 
 #Add Django site authentication urls (for login, logout, password management)

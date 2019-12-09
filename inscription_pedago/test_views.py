@@ -191,7 +191,42 @@ class TeatcherDetail(DetailView):
 def instrument(request):
     return render(request, 'inscription_pedago/instrument.html', {} )
 
+from .forms import ContactForm, ContactForm2
+def contact(request):
+    # if this is a POST request we need to process the form data
+    if request.method == 'POST':
+        # create a form instance and populate it with data from the request:
+        form = ContactForm(request.POST)
+        # check whether it's valid:
+        if form.is_valid():
+            # process the data in form.cleaned_data as required
+            # ...
+            # redirect to a new URL:
+            return redirect('will_contact')
 
+        else:
+            print('CONTACT FORM invalid')
+
+    # if a GET (or any other method) we'll create a blank form
+    else:
+        form = ContactForm()
+
+    return render(request, 'inscription_pedago/contact.html', {'form': form} )
+    # return render(request, 'inscription_pedago/contact.html', {} )
+
+from inscription_pedago.models import ContactModel
+
+from django.urls import reverse_lazy
+class ContactCreate(CreateView) :
+    template_name = "inscription_pedago/contact.html"
+    # model = ContactModel   
+    form_class = ContactForm2
+    # fields = fields = ['name', 'phone_number', 'demandes_particulieres']
+    success_url = reverse_lazy('will_contact') #"will_contact"
+
+def will_contact(request):
+    return render(request, 'inscription_pedago/base_instrument.html', {'message': 'Votre demande a bien été prise en compte, nous vous rappellerons sous 48 heures.'} )
+ 
 
 from django.core.mail import send_mail
 

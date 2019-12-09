@@ -45,3 +45,8 @@ class Validation_code(models.Model):
     def __str__(self):
         str_student = '' if self.student is None else '-> '+ self.student.full_name()
         return self.code +' ('+ str(self.teatcher) +')'+ str_student
+
+class ContactModel(models.Model):
+    name = models.CharField(max_length=12)
+    phone_number    = models.CharField(max_length=20)
+    demandes_particulieres = models.CharField(max_length=2000, default='')
