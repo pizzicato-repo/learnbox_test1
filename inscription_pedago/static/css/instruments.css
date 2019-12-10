@@ -22,7 +22,7 @@ body {
 }
 
 .tata{
-    font-size:120%;  
+    font-size:140%;  
 }
 
 #instrument-header{
@@ -79,3 +79,6 @@ body {
     width : 200px;
 }
 
+#contacteznous{
+    font-size:140%;
+}
