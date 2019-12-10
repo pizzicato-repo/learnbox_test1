@@ -188,7 +188,7 @@ class TeatcherDetail(DetailView):
     #     return context
 
 
-def instrument(request):
+def instruments(request):
     return render(request, 'inscription_pedago/instruments.html', {} )
 
 from .forms import ContactForm, ContactForm2

@@ -64,6 +64,7 @@ body {
     border: 1px solid rgb(136,0,21,.2); 
     border-radius: 4px;
     color : black;
+    line-height: 1.7; 
 }
 
 #points-forts{
@@ -71,6 +72,7 @@ body {
     border: 1px solid #dddddd;
     color : rgb(0,0,77);
     font-size:140%;
+    line-height: 1.5; 
 }
 #ligne1{
     width : 200px;
@@ -81,4 +83,10 @@ body {
 
 #contacteznous{
     font-size:140%;
+}
+
+
+.roro{
+    line-height: 1.5; 
+    text-align: left;  
 }
