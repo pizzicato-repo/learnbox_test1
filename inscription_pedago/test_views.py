@@ -225,7 +225,11 @@ class ContactCreate(CreateView) :
     success_url = reverse_lazy('test_learnbox:wewillcontactyou') #"will_contact"
 
 def will_contact(request):
-    return render(request, 'inscription_pedago/wewillcontactyou.html', {'message': 'Votre demande a bien été prise en compte, nous vous rappellerons sous 48 heures.'} )
+    return render(request, 'inscription_pedago/wewillcontactyou.html', 
+    {'message': 'Votre demande a bien été prise en compte, nous vous rappellerons sous 48 heures.  Merci de votre visite'} )
+ 
+def about(request):
+    return render(request, 'inscription_pedago/wewillcontactyou.html', {'message': ''} )
  
 
 from django.core.mail import send_mail

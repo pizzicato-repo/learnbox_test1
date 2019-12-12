@@ -10,7 +10,7 @@ body {
     /* padding-top: 10px; */
     word-wrap:break-word !important;
     /* background-color : rgb(246,221,201); */
-    color : #C9744F
+    color : rgb(136,0,21);/*#C9744F*/
     /* color : rgb(166,57,80); */
 }     
 [class*="col"], footer, aside {
@@ -89,4 +89,10 @@ body {
 .roro{
     line-height: 1.5; 
     text-align: left;  
+}
+
+.accroche{
+    /* font-weight:bold; */
+    font-size:24px;
+    color :#C9744F;
 }

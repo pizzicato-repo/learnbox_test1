@@ -28,4 +28,5 @@ urlpatterns = [
     path('contact-us', test_views.ContactCreate.as_view(), name='contact-us'), #OK
 
     path('wewillcontactyou', test_views.will_contact, name='wewillcontactyou'),
+    path('about', test_views.about, name='about'),
 ]
