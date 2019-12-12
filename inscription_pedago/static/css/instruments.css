@@ -85,7 +85,6 @@ body {
     font-size:140%;
 }
 
-
 .roro{
     line-height: 1.5; 
     text-align: left;  
@@ -95,4 +94,8 @@ body {
     /* font-weight:bold; */
     font-size:24px;
     color :#C9744F;
+}
+
+#texte-loi{
+    color : navy;
 }

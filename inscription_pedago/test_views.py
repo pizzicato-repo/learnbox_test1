@@ -218,12 +218,14 @@ class ContactCreate(CreateView) :
 
 def will_contact(request):
     dico = {'message': 'Votre demande a bien été prise en compte, nous vous rappellerons sous 48 heures.  Merci de votre visite'} 
-    dico = update_dico_for_orpheo( dico, 'contact', 'will-contact-top')
+    dico = update_dico_for_orpheo( dico, '', 'will-contact-top')
     return render(request, 'inscription_pedago/wewillcontactyou.html', dico )
     
  
 def about(request):
-    return render(request, 'inscription_pedago/wewillcontactyou.html', {'message': ''} )
+    dico = {'message': 'about'} 
+    dico = update_dico_for_orpheo( dico, '', 'about')
+    return render(request, 'inscription_pedago/about.html', dico )
  
 
 from django.core.mail import send_mail
