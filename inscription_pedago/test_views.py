@@ -188,35 +188,22 @@ class TeatcherDetail(DetailView):
     #     return context
 
 
+# ORPHEO
+
+def update_dico_for_orpheo(dico, specific_css, name_image_top):
+    dico['specific_css'] = 'css/'+ specific_css +'.css'
+    dico['name_image_top'] = 'img/'+ name_image_top +'.jpg'
+    return dico
+
 def instruments(request):
-    return render(request, 'inscription_pedago/instruments.html', {} )
+    dico = update_dico_for_orpheo( {}, 'instruments', 'instrument-top')
+    return render(request, 'inscription_pedago/instruments.html', dico )
 
-from .forms import ContactForm, ContactForm2
-def contact(request):
-    # if this is a POST request we need to process the form data
-    if request.method == 'POST':
-        # create a form instance and populate it with data from the request:
-        form = ContactForm(request.POST)
-        # check whether it's valid:
-        if form.is_valid():
-            # process the data in form.cleaned_data as required
-            # ...
-            # redirect to a new URL:
-            return redirect('will_contact')
-
-        else:
-            print('CONTACT FORM invalid')
-
-    # if a GET (or any other method) we'll create a blank form
-    else:
-        form = ContactForm()
-
-    return render(request, 'inscription_pedago/contact.html', {'form': form} )
-    # return render(request, 'inscription_pedago/contact.html', {} )
 
 from inscription_pedago.models import ContactModel
 
 from django.urls import reverse_lazy
+from .forms import ContactForm2
 class ContactCreate(CreateView) :
     template_name = "inscription_pedago/contact.html"
     # model = ContactModel   
@@ -224,9 +211,16 @@ class ContactCreate(CreateView) :
     # fields = fields = ['name', 'phone_number', 'demandes_particulieres']
     success_url = reverse_lazy('test_learnbox:wewillcontactyou') #"will_contact"
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        update_dico_for_orpheo( context, 'contact', 'contact_instrument-top')
+        return context
+
 def will_contact(request):
-    return render(request, 'inscription_pedago/wewillcontactyou.html', 
-    {'message': 'Votre demande a bien été prise en compte, nous vous rappellerons sous 48 heures.  Merci de votre visite'} )
+    dico = {'message': 'Votre demande a bien été prise en compte, nous vous rappellerons sous 48 heures.  Merci de votre visite'} 
+    dico = update_dico_for_orpheo( dico, 'contact', 'will-contact-top')
+    return render(request, 'inscription_pedago/wewillcontactyou.html', dico )
+    
  
 def about(request):
     return render(request, 'inscription_pedago/wewillcontactyou.html', {'message': ''} )
@@ -244,3 +238,31 @@ def test_mail(request):
         fail_silently=False,
     )
     return HttpResponse( 'test mail done.' )
+
+
+    
+# from .forms import ContactForm
+# def contact(request):
+#     # if this is a POST request we need to process the form data
+#     if request.method == 'POST':
+#         # create a form instance and populate it with data from the request:
+#         form = ContactForm(request.POST)
+#         # check whether it's valid:
+#         if form.is_valid():
+#             # process the data in form.cleaned_data as required
+#             # ...
+#             # redirect to a new URL:
+#             return redirect('will_contact')
+
+#         else:
+#             print('CONTACT FORM invalid')
+
+#     # if a GET (or any other method) we'll create a blank form
+#     else:
+#         form = ContactForm()
+
+#     datas = get_dico_for_orpheo( 'contact', 'contact_instrument-top')
+#     datas.form = form
+
+#     print( "#################DATA = ", datas )
+#     return render(request, 'inscription_pedago/contact.html', datas )

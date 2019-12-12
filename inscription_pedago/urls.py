@@ -22,9 +22,11 @@ urlpatterns = [
     path('teatcher/<int:pk>/', test_views.TeatcherDetail.as_view(), name='teatcher_detail'),
     
     path('test_mail', test_views.test_mail, name='test_mail'),
-    path('instruments', test_views.instruments, name='instruments'),
 
     # path('contact-us', test_views.contact, name='contact'), #OK
+
+    #Orheo
+    path('instruments', test_views.instruments, name='instruments'),
     path('contact-us', test_views.ContactCreate.as_view(), name='contact-us'), #OK
 
     path('wewillcontactyou', test_views.will_contact, name='wewillcontactyou'),
