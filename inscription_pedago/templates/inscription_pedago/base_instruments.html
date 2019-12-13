@@ -12,23 +12,24 @@
 
   </head>
   <body>
-    <nav>
-        <div id="nom-orpheo">ORPHEO INVESTISSEMENT</div>
-
-        <label for="drop" class="toggle">Menu</label>
-        <input type="checkbox" id="drop" />
-            <ul class="menu">
-                <li><a href="/instruments">Home</a></li>                        
-
-                <li><a href="/contact-us">Contact</a></li>
-                <li><a href="/about">About</a></li>
-            </ul>
-    </nav>
+        <nav>
+            <div id="nom-orpheo">ORPHEO INVESTISSEMENT</div>
+    
+            <label for="drop" class="toggle">Menu</label>
+            <input type="checkbox" id="drop" />
+                <ul class="menu">
+                    <li><a href="/instruments">Home</a></li>                        
+    
+                    <li><a href="/contact-us">Contact</a></li>
+                    <li><a href="/about">About</a></li>
+                </ul>
+        </nav>
 
     <img src="{% static name_image_top %}" id="img-top">
-  
 
+    <div class="container-fluid">
         {% block content %}
         {% endblock %}
+    </div>
     </body>
   </html>
