@@ -190,9 +190,12 @@ class TeatcherDetail(DetailView):
 
 # ORPHEO
 
-def update_dico_for_orpheo(dico, specific_css, name_image_top):
-    dico['specific_css'] = 'css/'+ specific_css +'.css'
-    dico['name_image_top'] = 'img/'+ name_image_top +'.jpg'
+def update_dico_for_orpheo(dico, specific_css, name_image_top, name_image_bottom=""):
+    dico['specific_css'] = 'css/'+ specific_css +'.css'  if specific_css else ''
+    dico['name_image_top'] = 'img/'+ name_image_top +'.jpg' if name_image_top else ''
+    if not name_image_bottom : 
+        name_image_bottom = 'contr-ab-25'
+    dico['name_image_bottom'] = 'img/'+ name_image_bottom +'.jpg' if name_image_bottom else ''
     return dico
 
 def instruments(request):
@@ -213,18 +216,18 @@ class ContactCreate(CreateView) :
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        update_dico_for_orpheo( context, 'contact', 'contact_instrument-top')
+        update_dico_for_orpheo( context, 'contact', '')
         return context
 
 def will_contact(request):
     dico = {'message': 'Votre demande a bien été prise en compte, nous vous rappellerons sous 48 heures.  Merci de votre visite'} 
-    dico = update_dico_for_orpheo( dico, '', 'will-contact-top')
+    dico = update_dico_for_orpheo( dico, '', '')
     return render(request, 'inscription_pedago/wewillcontactyou.html', dico )
     
  
 def about(request):
     dico = {'message': 'about'} 
-    dico = update_dico_for_orpheo( dico, '', 'about')
+    dico = update_dico_for_orpheo( dico, '', '')
     return render(request, 'inscription_pedago/about.html', dico )
  
 

@@ -25,11 +25,15 @@
                 </ul>
         </nav>
 
+    {% if name_image_top %}
     <img src="{% static name_image_top %}" id="img-top">
+    {% endif %}    
 
     <div class="container-fluid">
         {% block content %}
         {% endblock %}
     </div>
+
+    <img src="{% static name_image_bottom %}" id="img-bottom">
     </body>
   </html>
