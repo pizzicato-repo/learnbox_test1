@@ -27,6 +27,7 @@ urlpatterns = [
 
     #Orheo
     path('', test_views.instruments, name='instruments'),
+    path('instruments', test_views.instrumentsTest, name='instruments'),
     path('contact-us', test_views.ContactCreate.as_view(), name='contact-us'), #OK
 
     path('wewillcontactyou', test_views.will_contact, name='wewillcontactyou'),

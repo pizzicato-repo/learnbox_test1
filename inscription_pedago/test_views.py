@@ -202,6 +202,10 @@ def instruments(request):
     dico = update_dico_for_orpheo( {}, 'instruments', 'instrument-top')
     return render(request, 'inscription_pedago/instruments.html', dico )
 
+def instrumentsTest(request):
+    dico = update_dico_for_orpheo( {}, 'instruments2', 'instrument-top')
+    return render(request, 'inscription_pedago/instruments2.html', dico )
+
 
 from inscription_pedago.models import ContactModel
 
