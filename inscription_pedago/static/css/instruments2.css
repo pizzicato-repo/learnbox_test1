@@ -1,0 +1,108 @@
+@media screen and (max-width: 640px) {
+    body {
+        font-size:100%;  
+        word-wrap:break-word !important;
+      }
+  }
+
+
+body {
+    /* padding-top: 10px; */
+    word-wrap:break-word !important;
+    /* background-color : rgb(246,221,201); */
+    color: rgb(0, 0, 0);/*#C9744F*/
+    /* color : rgb(166,57,80); */
+}     
+[class*="col"], footer, aside {
+    /* background-color: lightblue;
+    border: 1px solid blue; */
+    border-radius: 4px;
+    line-height: 40px;
+    text-align: left;
+}
+
+.tata{
+    font-size:140%;  
+}
+
+#instrument-header{
+    background-color: black;
+    text-align: center;
+    padding-top : 10px;
+    padding-bottom : 0px;
+}
+#img-top{
+    display: block;
+    /* margin: 0 auto; */
+    height: 100%;
+    width: 100%;
+}
+#img-bottom{
+    display: block;
+    padding: 0 ; 
+    height: 100%;
+    width: 100%;
+}
+
+.lead{
+    font-weight: 400;
+    color: rgb(0, 0, 0);
+    font-size: 1.6em;
+}
+.h4{
+    font-weight: 600;
+    color: #2e4f70;
+    font-family: 'Monospace', sans-serif !important;
+    /* background-color: lightblue;
+    border: 1px solid blue; */
+}
+.toto{
+    /* background-color: lightblue;
+    border: 1px solid blue;  */
+    line-height: 1.5;   
+    color : black;
+}
+.row-spacer{
+    height : 20px;
+}
+#instrument-exemple{
+    padding-top : 10px;
+    /* background-color:rgb(236,191,174); */
+    background-color: rgb(46, 79, 112);
+    border: 1px solid rgb(46, 79, 112);
+    border-radius: 4px;
+    color: white;
+    line-height: 1.7;
+}
+
+#points-forts{
+    background-color: #2e4f70;
+    border: 1px solid #2e4f70;
+    color: rgb(255, 255, 255);
+    font-size:140%;
+    line-height: 1.5;
+}
+#ligne1{
+    width : 200px;
+}
+#ligne2{
+    width : 200px;
+}
+
+
+.roro{
+    font-style: italic;
+    line-height: 1.5;
+    text-align: left;
+    color: black;
+}
+
+.accroche{
+    /* font-weight:bold; */
+    font-size:24px;
+    color: #bb7b45;
+}
+
+#texte-loi{
+    color: #2e4f70;
+}
