@@ -1,11 +1,11 @@
 from django import forms
 
-from .models import Student, ContactModel
+from .models import ContactModel
 
-class StudentForm(forms.ModelForm):
-    class Meta:
-        model = Student
-        fields = ('name', 'surname', 'email', 'date_of_birth' ) #'date_of_birth',
+# class StudentForm(forms.ModelForm):
+#     class Meta:
+#         model = Student
+#         fields = ('name', 'surname', 'email', 'date_of_birth' ) #'date_of_birth',
 
 # Les deux codes sont !!presque!! équivalents
 # class ContactForm(forms.Form):
