@@ -51,7 +51,7 @@ body {
 }
 .h4{
     font-weight: 600;
-    color: rgb(0, 0, 0);
+    color: #2e4f70;
     font-family: 'Monospace', sans-serif !important;
     /* background-color: lightblue;
     border: 1px solid blue; */
@@ -94,6 +94,7 @@ body {
     font-style: italic;
     line-height: 1.5;
     text-align: left;
+    color: #2e4f70;
 }
 
 .accroche{
