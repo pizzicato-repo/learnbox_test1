@@ -47,9 +47,19 @@ class Validation_code(models.Model):
         return self.code +' ('+ str(self.teatcher) +')'+ str_student
 
 class ContactModel(models.Model):
-    name = models.CharField(max_length=12, verbose_name="Nom société")
+    MRS = 'MRS'
+    MR = 'MR'
+    GENRE = [ (MRS, 'Madame'), (MR, 'Monsieur'),]
+    genre = models.CharField(
+        max_length=3,
+        choices=GENRE,
+    )
+    name = models.CharField(max_length=12, verbose_name="Nom")
+    surname = models.CharField(max_length=12, verbose_name="Prénom")
+    enterprise_name = models.CharField(max_length=12, verbose_name="Société")
     phone_number    = models.CharField(max_length=20, verbose_name="numéro téléphone")
     demandes_particulieres = models.CharField(max_length=2000, default='', null=True, blank=True, verbose_name="demandes particulières")
+
 
     def __str__(self):
         return self.name +'    (' + self.phone_number + ')'
