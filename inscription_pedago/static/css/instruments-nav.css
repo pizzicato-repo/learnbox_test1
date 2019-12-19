@@ -49,11 +49,11 @@ h1 {
 } 
 
 /* Giving a background-color to the nav container. */
-nav { 
+nav {
 	margin:0;
 	padding: 0;
 	background-color: black;
-	color : rgb(136,0,21);
+	color: #bb7b45;
 }
 
 
@@ -86,9 +86,10 @@ nav ul li {
 
 /* Styling the links */
 nav a {
+	font-style: normal;
 	display:block;
-	padding:14px 20px;	
-	color:rgb(136,0,21);;
+	padding:14px 20px;
+	color: rgb(187, 123, 69);
 	font-size:17px;
 	text-decoration:none;
 	font-weight:bold;

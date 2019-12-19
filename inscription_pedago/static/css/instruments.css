@@ -10,7 +10,7 @@ body {
     /* padding-top: 10px; */
     word-wrap:break-word !important;
     /* background-color : rgb(246,221,201); */
-    color : rgb(136,0,21);/*#C9744F*/
+    color: rgb(0, 0, 0);/*#C9744F*/
     /* color : rgb(166,57,80); */
 }     
 [class*="col"], footer, aside {
@@ -39,13 +39,15 @@ body {
 }
 
 .lead{
-    color:rgb(136,0,21);
+    font-weight: 400;
+    color: rgb(0, 0, 0);
     font-size: 1.6em;
 }
 .h4{
-    color:rgb(136,0,21);
+    font-weight: 600;
+    color: rgb(0, 0, 0);
     font-family: 'Monospace', sans-serif !important;
-      /* background-color: lightblue;
+    /* background-color: lightblue;
     border: 1px solid blue; */
 }
 .toto{
@@ -60,19 +62,19 @@ body {
 #instrument-exemple{
     padding-top : 10px;
     /* background-color:rgb(236,191,174); */
-    background-color:rgb(136,0,21,.1);; 
-    border: 1px solid rgb(136,0,21,.2); 
+    background-color: rgb(46, 79, 112);
+    border: 1px solid rgb(46, 79, 112);
     border-radius: 4px;
-    color : black;
-    line-height: 1.7; 
+    color: white;
+    line-height: 1.7;
 }
 
 #points-forts{
-    background-color: rgb(230, 247, 251);
-    border: 1px solid #dddddd;
-    color : rgb(0,0,77);
+    background-color: #2e4f70;
+    border: 1px solid #2e4f70;
+    color: rgb(255, 255, 255);
     font-size:140%;
-    line-height: 1.5; 
+    line-height: 1.5;
 }
 #ligne1{
     width : 200px;
@@ -83,16 +85,17 @@ body {
 
 
 .roro{
-    line-height: 1.5; 
-    text-align: left;  
+    font-style: italic;
+    line-height: 1.5;
+    text-align: left;
 }
 
 .accroche{
     /* font-weight:bold; */
     font-size:24px;
-    color :#C9744F;
+    color: #bb7b45;
 }
 
 #texte-loi{
-    color : navy;
+    color: #2e4f70;
 }
