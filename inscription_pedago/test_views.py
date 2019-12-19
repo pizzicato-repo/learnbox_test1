@@ -220,13 +220,13 @@ class ContactCreate(CreateView) :
         return context
 
 def will_contact(request):
-    dico = {'message': 'Votre demande a bien été prise en compte, nous vous rappellerons sous 48 heures.  Merci de votre visite'} 
+    dico = {'message': ''} 
     dico = update_dico_for_orpheo( dico, '', '')
     return render(request, 'inscription_pedago/wewillcontactyou.html', dico )
     
  
 def about(request):
-    dico = {'message': 'about'} 
+    dico = {'message': 'non utilisé'} 
     dico = update_dico_for_orpheo( dico, '', '')
     return render(request, 'inscription_pedago/about.html', dico )
  

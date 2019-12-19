@@ -53,6 +53,7 @@ class ContactModel(models.Model):
     genre = models.CharField(
         max_length=3,
         choices=GENRE,
+        verbose_name="Civilité",
     )
     name = models.CharField(max_length=12, verbose_name="Nom")
     surname = models.CharField(max_length=12, verbose_name="Prénom")

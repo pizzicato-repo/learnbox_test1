@@ -22,7 +22,7 @@ class ContactForm2(forms.ModelForm):
         fields = ('genre', 'name', 'surname', 'enterprise_name', 'phone_number', 'demandes_particulieres')
         # fields = '__all__'
         widgets = {
-            'genre' : forms.ChoiceField(choices=CHOICES),
+            'genre' : forms.Select(attrs={'class': 'custom-select'}),
             'name': forms.TextInput(attrs={'class': 'form-control'}),
             'surname': forms.TextInput(attrs={'class': 'form-control'}),
             'enterprise_name': forms.TextInput(attrs={'class': 'form-control'}),
